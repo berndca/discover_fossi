@@ -83,7 +83,7 @@ def extract_keys(repo_dict):
         repo_dict["language"],
         repo_dict["forks"],
         repo_dict["stargazers_count"],
-        repo_dict["updated_at"][:10].replace("-", "/")
+        repo_dict["pushed_at"][:10].replace("-", "/")
     ]
 
 
