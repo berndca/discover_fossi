@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
     <style>
-    #page-header {
-      color: #fff;
-      text-align: center;
-      background-color: #159957;
-      background-image: linear-gradient(120deg, #155799, #159957); }
+        #page-header {
+          color: #fff;
+          text-align: center;
+          background-color: #159957;
+          background-image: linear-gradient(120deg, #155799, #159957); }
     </style>
 
   </head>
@@ -25,20 +26,65 @@
     <section class="container">
       <h3>Welcome to the Free and Open Source Silicon Github Index</h3>
 
-<p>This index contains information about open source silicon repos on Github. This index has been created from lists of Github users and Github repositories. Please feel free to file and <a href="https://github.com/berndca/discover_fossi/issues" target="_blank">issue</a> to add more repos.</p>
+<p>This index contains information about open source silicon repos on Github. This index has been created from lists
+    of Github users and Github repositories. Please feel free to file an
+    <a href="https://github.com/berndca/discover_fossi/issues" target="_blank">issue</a> to add more repos or to have
+    more detailed information about your repo included. All repos with 10 or more stars on github have been reviewed
+    with regards to the availability of tests and fpga flows and the results have been included in the database.</p>
 
-<h3>Searching and Sorting</h3>
+<h3>Select Boxes, Searching and Sorting</h3>
 
-<p>The index can be searched by entering a search query in the search box on top of the table. The search is not case sensitive. Multiple strings can be used. The first three columns are searchable. For instance to search for UART's in VHDL enter:</p>
-<pre>uart vhdl</pre>
+<p>There are now four select boxes above the table. You can use them to further fine tune your search.
+The first box on the left is used to select one or more repo features. For instance by selecting Is IP Block
+and Has Tests only IP blocks in repos with tests for these blocks are shown. At this time only repos with
+10 or more stars are included. The next box can be used to select a language (family). The validation level
+box filters for IP which has been validated in an FPGA or in Silicon. The last box allows filtering by
+license type.</p>
+
+<p>The index can be searched by entering a search query in the search box on top of the table.
+    The search is not case sensitive. Multiple strings can be used. The first three columns are
+    searchable. For instance to search for UART's with Wishbone interface enter:</p>
+
+<pre>uart wb</pre>
 
 <p>To sort click on the header of the column you would like to search. Click again to change the sort direction.</p>
-<hr />
+
+        <hr />
+
+<select id="ip_type" class="selectpicker" multiple title="Choose repo features..."  data-width="25%">
+  <option data-option="i">Is IP Block</option>
+  <option data-option="t">Has Tests</option>
+  <option data-option="f">Has FPGA Files</option>
+</select>
+
+
+<select id="language" class="selectpicker">
+  <option data-option="">Any Language</option>
+  <option data-option="v">VHDL</option>
+  <option data-option="s">Verilog/SystemVerilog</option>
+</select>
+
+
+<select id="quality" class="selectpicker">
+  <option data-option="">Any Validation Level</option>
+  <option data-option="f">FPGA Validated</option>
+  <option data-option="s">Silicon Validated</option>
+</select>
+
+
+<select id="license" class="selectpicker">
+  <option data-option="">Any License</option>
+  <option data-option="p">Permissive License</option>
+  <option data-option="o">Other License</option>
+  <option data-option="n">No License</option>
+</select>
+
+
+        <hr />
 
 <table id="repos" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example_info" style="width: 100%;" cellspacing="0" width="100%">
 </table>
 
-				</table>
         <hr />
       <footer>
         <span class="site-footer-owner"><a href="https://github.com/berndca/discover_fossi">Discover Free and Open Source Silicon</a> is maintained by <a href="https://github.com/berndca">berndca</a>.</span>
@@ -49,21 +95,58 @@
     </section>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 
     <script type="text/javascript">
+    $.fn.dataTable.ext.search.push(
+        function( settings, data, dataIndex ) {
+            var tags = [];
+            $('#ip_type').children('option:selected').each(function(){
+                tags.push($(this).data('option'));
+            });
+            var mapped = tags.map( function(c) {
+                return (data[7].indexOf(c) > -1);
+            });
+
+            var tags_search = mapped.reduce( function(filter, item) {
+                return filter && item;
+            }, true);
+            var license = $('#license').children('option:selected').data('option');
+            var quality = $('#quality').children('option:selected').data('option');
+            var language = $('#language').children('option:selected').data('option');
+            var permissive_licenses = ["apache-2.0", "bsd-2-clause", "bsd-3-clause", "isc", "mit",
+                                       "mpl-2.0", "unlicense", "wtfpl"];
+
+            var quality_search = !quality || (quality === data[8]);
+            var verilogs = ["Verilog", "SystemVerilog"];
+            var language_search = !language || (language === "s") && (verilogs.indexOf(data[3]) > -1)
+                || (language === "v") && (data[3]  === "VHDL");
+            var license_search = !license  || (license === "p") && (permissive_licenses.indexOf(data[2]) > -1)
+                || (license === "o") && license && data[2] && (permissive_licenses.indexOf(data[2]) === -1)
+                || (license === "n") && license && data[2] === "";
+
+            return quality_search && language_search && license_search && tags_search;
+        }
+    );
+
+    $('.selectpicker').selectpicker();
+
     $(document).ready(function() {
-        $('#repos').DataTable( {
-            ajax: "data/data.json",
+        var table = $('#repos').DataTable( {
+            ajax: "data/new_data.json",
             columns: [
                 { title: "Repository" },
                 { title: "Description", visible: false },
-    						{ title: "License." },
+                { title: "License." },
                 { title: "Language" },
-    						{ title: "Forks", searchable: false },
+                { title: "Forks", searchable: false },
                 { title: "Stars", searchable: false },
-    						{ title: "Updated", searchable: false }
+                { title: "Updated", searchable: false },
+                { title: "Features", visible: false },
+                { title: "Quality", visible: false }
             ],
     	    columnDefs: [
     		    {
@@ -75,6 +158,9 @@
     		    }
     	    ]
         } );
+        $('.selectpicker').change( function() {
+            table.draw();
+    } );
     } );
     </script>
 
