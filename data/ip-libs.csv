@@ -1,123 +1,123 @@
-Repo|Block|Description|Status
-parallella/oh|accelerator |Accelerator tutorial|FPGA 
-parallella/oh|axi |AXI master and slave interfaces|FPGA 
-parallella/oh|chip |Chip design reference flow|SI 
-parallella/oh|common |Library of basic components|SI 
+repo|block|description|quality
+parallella/oh|accelerator |Accelerator tutorial|fpga 
+parallella/oh|axi |AXI master and slave interfaces|fpga 
+parallella/oh|chip |Chip design reference flow|si 
+parallella/oh|common |Library of basic components|si 
 parallella/oh|edma |DMA engine|
-parallella/oh|elink |Point to point LVDS link|SI 
-parallella/oh|emailbox |Mailbox with interrupt output|FPGA 
-parallella/oh|emesh |Emesh interface circuits|SI 
-parallella/oh|emmu |Memory translation unit|FPGA 
+parallella/oh|elink |Point to point LVDS link|si 
+parallella/oh|emailbox |Mailbox with interrupt output|fpga 
+parallella/oh|emesh |Emesh interface circuits|si 
+parallella/oh|emmu |Memory translation unit|fpga 
 parallella/oh|etrace |Logic Analyzer|
 parallella/oh|gpio |General Purpose IO|
 parallella/oh|mio |Lightweight parallel link|
-parallella/oh|pic |Interrupt controller|SI 
-parallella/oh|parallella |Parallella FPGA logic|FPGA 
+parallella/oh|pic |Interrupt controller|si 
+parallella/oh|parallella |Parallella fpga logic|fpga 
 parallella/oh|risc-v |RISC-V implementation|
 parallella/oh|spi |SPI master/slave|
-m-labs/milkymist|ac97||FPGA 
-m-labs/milkymist|asfifo||FPGA 
-m-labs/milkymist|bt656cap||FPGA 
-m-labs/milkymist|conbus||FPGA 
-m-labs/milkymist|csrbrg||FPGA 
-m-labs/milkymist|dmx||FPGA 
-m-labs/milkymist|fmlarb||FPGA 
-m-labs/milkymist|fmlbrg||FPGA 
-m-labs/milkymist|fmlmeter||FPGA 
-m-labs/milkymist|hpdmc_ddr32||FPGA 
-m-labs/milkymist|lm32|LatticeMico32|FPGA 
-m-labs/milkymist|memcard||FPGA 
-m-labs/milkymist|memtest||FPGA 
-m-labs/milkymist|minimac2||FPGA 
-m-labs/milkymist|monitor||FPGA 
-m-labs/milkymist|norflash16||FPGA 
-m-labs/milkymist|pfpu||FPGA 
-m-labs/milkymist|rc5||FPGA 
-m-labs/milkymist|softusb||FPGA 
-m-labs/milkymist|sysctl||FPGA 
-m-labs/milkymist|tmu2||FPGA 
-m-labs/milkymist|uart||FPGA 
-m-labs/milkymist|vgafb||FPGA 
-VLSI-EDA/PoC|arith_addw|width operand addition (e.g. 256 to 4096 bits)|FPGA 
-VLSI-EDA/PoC|arith_convert_bin2bcd|convert binary numbers to binary coded decimals (BCD)|FPGA 
-VLSI-EDA/PoC|arith_counter_bcd|BCD (Binary-Coded Decimal) counter|FPGA 
-VLSI-EDA/PoC|arith_counter_free|free running counter|FPGA 
-VLSI-EDA/PoC|arith_counter_gray|Gray-Code counter|FPGA 
-VLSI-EDA/PoC|arith_counter_ring|Johnson counter|FPGA 
-VLSI-EDA/PoC|arith_div|our fixed point division|FPGA 
-VLSI-EDA/PoC|arith_firstone|find the index if the first one in a vector|FPGA 
-VLSI-EDA/PoC|arith_muls_wide||FPGA 
-VLSI-EDA/PoC|arith_prefix_and||FPGA 
-VLSI-EDA/PoC|arith_prefix_or||FPGA 
-VLSI-EDA/PoC|arith_prng|Pseudo Random Number Generator (PRNG)|FPGA 
-VLSI-EDA/PoC|arith_same||FPGA 
-VLSI-EDA/PoC|arith_scaler|fixed point scaling unit (y := (x * A) / B)|FPGA 
-VLSI-EDA/PoC|arith_shifter_barrel|is a barrel shifter with multiple modes|FPGA 
-VLSI-EDA/PoC|arith_sqrt|square root|FPGA 
-VLSI-EDA/PoC|bus_Arbiter|a generic arbiter implementation with selectable port count|FPGA 
-VLSI-EDA/PoC|bus_stream|PoC.stream bus|FPGA 
-VLSI-EDA/PoC|cache_par|Cache with parallel tag-unit and data memory|FPGA 
-VLSI-EDA/PoC|cache_replacement_policy|Wrap different cache replacement policies|FPGA 
-VLSI-EDA/PoC|cache_tagunit_par|Tag-unit with fully-parallel compare of tag|FPGA 
-VLSI-EDA/PoC|cache_tagunit_seq|Tag-unit with sequential compare of tag|FPGA 
-VLSI-EDA/PoC|comm_crc|generic Cyclic Redundancy Check (CRC)|FPGA 
-VLSI-EDA/PoC|comm_scramble|generic LFSR based scrambler|FPGA 
-VLSI-EDA/PoC|ddrio_in|Dual-Data-Rate Input|FPGA 
-VLSI-EDA/PoC|ddrio_inout|Dual-Data-Rate Input and Output|FPGA 
-VLSI-EDA/PoC|ddrio_out|Dual-Data-Rate Output|FPGA 
-VLSI-EDA/PoC|dstruct_deque|deque (double-ended queue)|FPGA 
-VLSI-EDA/PoC|dstruct_stack|stack (LIFO)|FPGA 
-VLSI-EDA/PoC|fifo_cc_got|regular FIFO (one common clock, got-interface)|FPGA 
-VLSI-EDA/PoC|fifo_cc_got_tempgot|regular FIFO (one common clock, got-interface), extended by a transactional `tempgot`-interface (read-side). |FPGA 
-VLSI-EDA/PoC|fifo_cc_got_tempput|regular FIFO (one common clock, got-interface), extended by a transactional `tempput`-interface (write-side). |FPGA 
-VLSI-EDA/PoC|fifo_dc_got|cross-clock FIFO (two related clocks, got-interface)|FPGA 
-VLSI-EDA/PoC|fifo_ic_assembly |address-based FIFO stream assembly (two independent clocks)|FPGA 
-VLSI-EDA/PoC|fifo_ic_got|cross-clock FIFO (two independent clocks, got-interface)|FPGA 
-VLSI-EDA/PoC|mem_is61lv|ISSI - IS61LV SRAM controller|FPGA 
-VLSI-EDA/PoC|mem_is61nlp|ISSI - IS61NLP SRAM controller|FPGA 
-VLSI-EDA/PoC|mem_lut|Lookup-Table (LUT) implementations|FPGA 
-VLSI-EDA/PoC|mem_ocram|On-Chip RAM abstraction layer|FPGA 
-VLSI-EDA/PoC|mem_ocrom|On-Chip ROM abstraction layer|FPGA 
-VLSI-EDA/PoC|mem_sdram|SDRAM controllers|FPGA 
-VLSI-EDA/PoC|misc_filter|contains 1-bit filter algorithms (and, or, mean)|FPGA 
-VLSI-EDA/PoC|misc_FrequencyMeasurement|measures a input frequency relativ to a reference frequency|FPGA 
-VLSI-EDA/PoC|misc_gearbox|gearbox bus interface converter|FPGA 
-VLSI-EDA/PoC|misc_sync|offers clock-domain-crossing (CDC) modules|FPGA 
-VLSI-EDA/PoC|net_arp_BC_Receiver|Address Resolution Protocol - ARP BroadCast Receiver|FPGA 
-VLSI-EDA/PoC|net_arp_BC_Requester|Address Resolution Protocol - ARP BroadCast Requester|FPGA 
-VLSI-EDA/PoC|net_arp_Cache|Address Resolution Protocol - ARP Cache|FPGA 
-VLSI-EDA/PoC|net_arp_IPPool|Address Resolution Protocol - ARP IPPool|FPGA 
-VLSI-EDA/PoC|net_arp_UC_Receiver|Address Resolution Protocol - ARP UniCast Receiver|FPGA 
-VLSI-EDA/PoC|net_arp_UC_Responder|Address Resolution Protocol - ARP UniCast Responder|FPGA 
-VLSI-EDA/PoC|net_ipv4_FrameLoopback|Internet Protocol - Version 4 Loopback|FPGA 
-VLSI-EDA/PoC|net_ipv4_RX|Internet Protocol - Version 4 RX|FPGA 
-VLSI-EDA/PoC|net_ipv4_TX|Internet Protocol - Version 4 TX|FPGA 
-VLSI-EDA/PoC|net_ipv6_FrameLoopback|Internet Protocol - Version 6 Loopback|FPGA 
-VLSI-EDA/PoC|net_ipv6_RX|Internet Protocol - Version 6 RX|FPGA 
-VLSI-EDA/PoC|net_ipv6_TX|Internet Protocol - Version 6 TX|FPGA 
-VLSI-EDA/PoC|net_mac_FrameLoopback||FPGA 
-VLSI-EDA/PoC|net_mac_RX_DestMAC_Switch||FPGA 
-VLSI-EDA/PoC|net_mac_RX_SrcMAC_Filter||FPGA 
-VLSI-EDA/PoC|net_mac_RX_Type_Switch||FPGA 
-VLSI-EDA/PoC|net_mac_TX_DestMAC_Prepender||FPGA 
-VLSI-EDA/PoC|net_mac_TX_SrcMAC_Prepender||FPGA 
-VLSI-EDA/PoC|net_mac_Type_Prepender||FPGA 
-VLSI-EDA/PoC|net_udp_FrameLoopback||FPGA 
-VLSI-EDA/PoC|net_udp_RX||FPGA 
-VLSI-EDA/PoC|net_udp_TX||FPGA 
-VLSI-EDA/PoC|pmod_KYPD|a 16-button (4x4) keypad|FPGA 
-VLSI-EDA/PoC|pmod_SSD|a 2 digit 7-segment display (SSD)|FPGA 
-VLSI-EDA/PoC|pmod_USBUART|a USB to UART bridge (FTDI FT232RQ)|FPGA 
-VLSI-EDA/PoC|sort_lru_cache|Optimized LRU list implementation for Caches.|FPGA 
-VLSI-EDA/PoC|sort_lru_list|List storing key-value pairs in recently-used order|FPGA 
-VLSI-EDA/PoC|sortnet_BitonicSort|bitonic sorter as a sorting network|FPGA 
-VLSI-EDA/PoC|sortnet_OddEvenMergeSort|odd-even sorter as a sorting network|FPGA 
-VLSI-EDA/PoC|sortnet_OddEvenSort|odd-even sorter as a sorting network|FPGA 
-VLSI-EDA/PoC|stat_Average|calculate the running average value if an input stream|FPGA 
-VLSI-EDA/PoC|stat_Histogram|calculate a histrogram (distribution) of an input stream|FPGA 
-VLSI-EDA/PoC|stat_Maximum|calculate the maximums of an input stream|FPGA 
-VLSI-EDA/PoC|stat_Minimum|calculate the minimums of an input stream|FPGA 
-VLSI-EDA/PoC|uart|Simple UART|FPGA 
+m-labs/milkymist|ac97||fpga 
+m-labs/milkymist|asfifo||fpga 
+m-labs/milkymist|bt656cap||fpga 
+m-labs/milkymist|conbus||fpga 
+m-labs/milkymist|csrbrg||fpga 
+m-labs/milkymist|dmx||fpga 
+m-labs/milkymist|fmlarb||fpga 
+m-labs/milkymist|fmlbrg||fpga 
+m-labs/milkymist|fmlmeter||fpga 
+m-labs/milkymist|hpdmc_ddr32||fpga 
+m-labs/milkymist|lm32|LatticeMico32|fpga 
+m-labs/milkymist|memcard||fpga 
+m-labs/milkymist|memtest||fpga 
+m-labs/milkymist|minimac2||fpga 
+m-labs/milkymist|monitor||fpga 
+m-labs/milkymist|norflash16||fpga 
+m-labs/milkymist|pfpu||fpga 
+m-labs/milkymist|rc5||fpga 
+m-labs/milkymist|softusb||fpga 
+m-labs/milkymist|sysctl||fpga 
+m-labs/milkymist|tmu2||fpga 
+m-labs/milkymist|uart||fpga 
+m-labs/milkymist|vgafb||fpga 
+VLSI-EDA/PoC|arith_addw|width operand addition (e.g. 256 to 4096 bits)|fpga 
+VLSI-EDA/PoC|arith_convert_bin2bcd|convert binary numbers to binary coded decimals (BCD)|fpga 
+VLSI-EDA/PoC|arith_counter_bcd|BCD (Binary-Coded Decimal) counter|fpga 
+VLSI-EDA/PoC|arith_counter_free|free running counter|fpga 
+VLSI-EDA/PoC|arith_counter_gray|Gray-Code counter|fpga 
+VLSI-EDA/PoC|arith_counter_ring|Johnson counter|fpga 
+VLSI-EDA/PoC|arith_div|our fixed point division|fpga 
+VLSI-EDA/PoC|arith_firstone|find the index if the first one in a vector|fpga 
+VLSI-EDA/PoC|arith_muls_wide||fpga 
+VLSI-EDA/PoC|arith_prefix_and||fpga 
+VLSI-EDA/PoC|arith_prefix_or||fpga 
+VLSI-EDA/PoC|arith_prng|Pseudo Random Number Generator (PRNG)|fpga 
+VLSI-EDA/PoC|arith_same||fpga 
+VLSI-EDA/PoC|arith_scaler|fixed point scaling unit (y := (x * A) / B)|fpga 
+VLSI-EDA/PoC|arith_shifter_barrel|is a barrel shifter with multiple modes|fpga 
+VLSI-EDA/PoC|arith_sqrt|square root|fpga 
+VLSI-EDA/PoC|bus_Arbiter|a generic arbiter implementation with selectable port count|fpga 
+VLSI-EDA/PoC|bus_stream|PoC.stream bus|fpga 
+VLSI-EDA/PoC|cache_par|Cache with parallel tag-unit and data memory|fpga 
+VLSI-EDA/PoC|cache_replacement_policy|Wrap different cache replacement policies|fpga 
+VLSI-EDA/PoC|cache_tagunit_par|Tag-unit with fully-parallel compare of tag|fpga 
+VLSI-EDA/PoC|cache_tagunit_seq|Tag-unit with sequential compare of tag|fpga 
+VLSI-EDA/PoC|comm_crc|generic Cyclic Redundancy Check (CRC)|fpga 
+VLSI-EDA/PoC|comm_scramble|generic LFSR based scrambler|fpga 
+VLSI-EDA/PoC|ddrio_in|Dual-Data-Rate Input|fpga 
+VLSI-EDA/PoC|ddrio_inout|Dual-Data-Rate Input and Output|fpga 
+VLSI-EDA/PoC|ddrio_out|Dual-Data-Rate Output|fpga 
+VLSI-EDA/PoC|dstruct_deque|deque (double-ended queue)|fpga 
+VLSI-EDA/PoC|dstruct_stack|stack (LIFO)|fpga 
+VLSI-EDA/PoC|fifo_cc_got|regular FIFO (one common clock, got-interface)|fpga 
+VLSI-EDA/PoC|fifo_cc_got_tempgot|regular FIFO (one common clock, got-interface), extended by a transactional `tempgot`-interface (read-side). |fpga 
+VLSI-EDA/PoC|fifo_cc_got_tempput|regular FIFO (one common clock, got-interface), extended by a transactional `tempput`-interface (write-side). |fpga 
+VLSI-EDA/PoC|fifo_dc_got|cross-clock FIFO (two related clocks, got-interface)|fpga 
+VLSI-EDA/PoC|fifo_ic_assembly |address-based FIFO stream assembly (two independent clocks)|fpga 
+VLSI-EDA/PoC|fifo_ic_got|cross-clock FIFO (two independent clocks, got-interface)|fpga 
+VLSI-EDA/PoC|mem_is61lv|ISSI - IS61LV SRAM controller|fpga 
+VLSI-EDA/PoC|mem_is61nlp|ISSI - IS61NLP SRAM controller|fpga 
+VLSI-EDA/PoC|mem_lut|Lookup-Table (LUT) implementations|fpga 
+VLSI-EDA/PoC|mem_ocram|On-Chip RAM abstraction layer|fpga 
+VLSI-EDA/PoC|mem_ocrom|On-Chip ROM abstraction layer|fpga 
+VLSI-EDA/PoC|mem_sdram|SDRAM controllers|fpga 
+VLSI-EDA/PoC|misc_filter|contains 1-bit filter algorithms (and, or, mean)|fpga 
+VLSI-EDA/PoC|misc_FrequencyMeasurement|measures a input frequency relativ to a reference frequency|fpga 
+VLSI-EDA/PoC|misc_gearbox|gearbox bus interface converter|fpga 
+VLSI-EDA/PoC|misc_sync|offers clock-domain-crossing (CDC) modules|fpga 
+VLSI-EDA/PoC|net_arp_BC_Receiver|Address Resolution Protocol - ARP BroadCast Receiver|fpga 
+VLSI-EDA/PoC|net_arp_BC_Requester|Address Resolution Protocol - ARP BroadCast Requester|fpga 
+VLSI-EDA/PoC|net_arp_Cache|Address Resolution Protocol - ARP Cache|fpga 
+VLSI-EDA/PoC|net_arp_IPPool|Address Resolution Protocol - ARP IPPool|fpga 
+VLSI-EDA/PoC|net_arp_UC_Receiver|Address Resolution Protocol - ARP UniCast Receiver|fpga 
+VLSI-EDA/PoC|net_arp_UC_Responder|Address Resolution Protocol - ARP UniCast Responder|fpga 
+VLSI-EDA/PoC|net_ipv4_FrameLoopback|Internet Protocol - Version 4 Loopback|fpga 
+VLSI-EDA/PoC|net_ipv4_RX|Internet Protocol - Version 4 RX|fpga 
+VLSI-EDA/PoC|net_ipv4_TX|Internet Protocol - Version 4 TX|fpga 
+VLSI-EDA/PoC|net_ipv6_FrameLoopback|Internet Protocol - Version 6 Loopback|fpga 
+VLSI-EDA/PoC|net_ipv6_RX|Internet Protocol - Version 6 RX|fpga 
+VLSI-EDA/PoC|net_ipv6_TX|Internet Protocol - Version 6 TX|fpga 
+VLSI-EDA/PoC|net_mac_FrameLoopback||fpga 
+VLSI-EDA/PoC|net_mac_RX_DestMAC_Switch||fpga 
+VLSI-EDA/PoC|net_mac_RX_SrcMAC_Filter||fpga 
+VLSI-EDA/PoC|net_mac_RX_Type_Switch||fpga 
+VLSI-EDA/PoC|net_mac_TX_DestMAC_Prepender||fpga 
+VLSI-EDA/PoC|net_mac_TX_SrcMAC_Prepender||fpga 
+VLSI-EDA/PoC|net_mac_Type_Prepender||fpga 
+VLSI-EDA/PoC|net_udp_FrameLoopback||fpga 
+VLSI-EDA/PoC|net_udp_RX||fpga 
+VLSI-EDA/PoC|net_udp_TX||fpga 
+VLSI-EDA/PoC|pmod_KYPD|a 16-button (4x4) keypad|fpga 
+VLSI-EDA/PoC|pmod_SSD|a 2 digit 7-segment display (SSD)|fpga 
+VLSI-EDA/PoC|pmod_USBUART|a USB to UART bridge (FTDI FT232RQ)|fpga 
+VLSI-EDA/PoC|sort_lru_cache|Optimized LRU list implementation for Caches.|fpga 
+VLSI-EDA/PoC|sort_lru_list|List storing key-value pairs in recently-used order|fpga 
+VLSI-EDA/PoC|sortnet_BitonicSort|bitonic sorter as a sorting network|fpga 
+VLSI-EDA/PoC|sortnet_OddEvenMergeSort|odd-even sorter as a sorting network|fpga 
+VLSI-EDA/PoC|sortnet_OddEvenSort|odd-even sorter as a sorting network|fpga 
+VLSI-EDA/PoC|stat_Average|calculate the running average value if an input stream|fpga 
+VLSI-EDA/PoC|stat_Histogram|calculate a histrogram (distribution) of an input stream|fpga 
+VLSI-EDA/PoC|stat_Maximum|calculate the maximums of an input stream|fpga 
+VLSI-EDA/PoC|stat_Minimum|calculate the minimums of an input stream|fpga 
+VLSI-EDA/PoC|uart|Simple UART|fpga 
 alexforencich/verilog-ethernet|arp|ARP handling logic with parametrizable retry timeout parameters.|
 alexforencich/verilog-ethernet|arp_64|ARP handling logic with parametrizable retry timeout parameters and 64 bit|
 alexforencich/verilog-ethernet|arp_cache|Basic LRU cache for ARP entries.  Parametrizable depth.|

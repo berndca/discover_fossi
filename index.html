@@ -51,28 +51,28 @@ license type.</p>
 
         <hr />
 
-<select id="ip_type" class="selectpicker" multiple title="Choose repo features..."  data-width="25%">
-  <option data-option="i">Is IP Block</option>
-  <option data-option="t">Has Tests</option>
-  <option data-option="f">Has FPGA Files</option>
+<select id="tags" class="selectpicker" multiple title="Choose repo tags..."  data-width="25%">
+  <option data-option="ip">Is IP Block</option>
+  <option data-option="tb">Has Tests</option>
+  <option data-option="fpga">Has FPGA Files</option>
 </select>
 
 
-<select id="language" class="selectpicker">
-  <option data-option="">Any Language</option>
-  <option data-option="v">VHDL</option>
-  <option data-option="s">Verilog/SystemVerilog</option>
+<select id="languages" class="selectpicker" multiple title="Choose HDL languages..."  data-width="25%">
+  <option data-option="systemverilog">SystemVerilog</option>
+  <option data-option="verilog">Verilog</option>
+  <option data-option="vhdl">VHDL</option>
 </select>
 
 
-<select id="quality" class="selectpicker">
+<select id="quality" class="selectpicker" data-width="24%">
   <option data-option="">Any Validation Level</option>
-  <option data-option="f">FPGA Validated</option>
-  <option data-option="s">Silicon Validated</option>
+  <option data-option="fpga">FPGA Validated</option>
+  <option data-option="si">Silicon Validated</option>
 </select>
 
 
-<select id="license" class="selectpicker">
+<select id="license" class="selectpicker" data-width="24%">
   <option data-option="">Any License</option>
   <option data-option="p">Permissive License</option>
   <option data-option="o">Other License</option>
@@ -104,26 +104,40 @@ license type.</p>
     $.fn.dataTable.ext.search.push(
         function( settings, data, dataIndex ) {
             var tags = [];
-            $('#ip_type').children('option:selected').each(function(){
+            $('#tags').children('option:selected').each(function(){
                 tags.push($(this).data('option'));
             });
-            var mapped = tags.map( function(c) {
+            var mapped_tags = tags.map( function(c) {
                 return (data[7].indexOf(c) > -1);
             });
 
-            var tags_search = mapped.reduce( function(filter, item) {
+            var tags_search = mapped_tags.reduce( function(filter, item) {
                 return filter && item;
             }, true);
+
+
+            var selectedLanguages = [];
+            $('#languages').children('option:selected').each(function(){
+                selectedLanguages.push($(this).data('option'));
+            });
+
+            var languages = data[3].split(",");
+            var languagesLowerCase = languages.map(String.toLowerCase);
+
+            var mapped_languages = selectedLanguages.map( function(c) {
+                return (languagesLowerCase.indexOf(c) > -1);
+            });
+
+            var language_search = mapped_languages.reduce( function(filter, item) {
+                return filter && item;
+            }, true);
+
             var license = $('#license').children('option:selected').data('option');
             var quality = $('#quality').children('option:selected').data('option');
-            var language = $('#language').children('option:selected').data('option');
             var permissive_licenses = ["apache-2.0", "bsd-2-clause", "bsd-3-clause", "isc", "mit",
                                        "mpl-2.0", "unlicense", "wtfpl"];
 
             var quality_search = !quality || (quality === data[8]);
-            var verilogs = ["Verilog", "SystemVerilog"];
-            var language_search = !language || (language === "s") && (verilogs.indexOf(data[3]) > -1)
-                || (language === "v") && (data[3]  === "VHDL");
             var license_search = !license  || (license === "p") && (permissive_licenses.indexOf(data[2]) > -1)
                 || (license === "o") && license && data[2] && (permissive_licenses.indexOf(data[2]) === -1)
                 || (license === "n") && license && data[2] === "";
@@ -137,11 +151,12 @@ license type.</p>
     $(document).ready(function() {
         var table = $('#repos').DataTable( {
             ajax: "data/data.json",
+            order: [[4, 'desc'], [5, 'desc'], [6, 'desc']],
             columns: [
                 { title: "Repository" },
                 { title: "Description", visible: false },
-                { title: "License." },
-                { title: "Language" },
+                { title: "License.", orderable: false },
+                { title: "Language", orderable: false },
                 { title: "Forks", searchable: false },
                 { title: "Stars", searchable: false },
                 { title: "Updated", searchable: false },
@@ -160,7 +175,7 @@ license type.</p>
         } );
         $('.selectpicker').change( function() {
             table.draw();
-    } );
+            } );
     } );
     </script>
 

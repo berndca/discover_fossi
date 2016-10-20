@@ -93,4 +93,4 @@ ENV/
 .secret
 .idea
 resp.json
-data/data.pmdx
+data/languages-cache/*json
