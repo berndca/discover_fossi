@@ -107,11 +107,11 @@ license type.</p>
             $('#tags').children('option:selected').each(function(){
                 tags.push($(this).data('option'));
             });
-            var mapped_tags = tags.map( function(c) {
+            var mapped_tags = $.map(tags, function(c) {
                 return (data[7].indexOf(c) > -1);
             });
 
-            var tags_search = mapped_tags.reduce( function(filter, item) {
+            var tags_search = mapped_tags.reduce(function(filter, item) {
                 return filter && item;
             }, true);
 
@@ -122,9 +122,11 @@ license type.</p>
             });
 
             var languages = data[3].split(",");
-            var languagesLowerCase = languages.map(String.toLowerCase);
+            var languagesLowerCase = $.map(languages, function(s) {
+                return s.toLowerCase();
+            });
 
-            var mapped_languages = selectedLanguages.map( function(c) {
+            var mapped_languages = $.map(selectedLanguages, function(c) {
                 return (languagesLowerCase.indexOf(c) > -1);
             });
 
